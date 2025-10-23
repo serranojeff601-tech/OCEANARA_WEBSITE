@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Oceannarra Beach Hotel and Resort</title>
+  <link rel="stylesheet" href="HOME.css">
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    /* NAVBAR */
+    .navbar {
+      width: 100%;
+      background: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 40px;
+      position: fixed;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .logo img {
+      height: 40px;
+      width: 160px;
+    }
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: black;
+      font-weight: 600;
+      padding: 5px 15px;
+      border-radius: 20px;
+      transition: 0.3s;
+    }
+    .nav-links a:hover,
+    .nav-links a.active {
+      background: #1e40af;
+      color: white;
+    }
+    .login-btn {
+      background: #22c55e;
+      color: white;
+      padding: 8px 18px;
+      border-radius: 25px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+    .login-btn:hover {
+      background: #16a34a;
+    }
+ .footer {
+      background: #1e3a8a;
+      color: white;
+      padding: 40px 20px;
+      margin-top: 60px;
+    }
+    .footer-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 20px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .footer-box h3 {
+      margin-bottom: 10px;
+    }
+    .footer-box p, .footer-box a {
+      color: #e0e7ff;
+      font-size: 0.9rem;
+    }
+    .footer-box ul {
+      list-style: none;
+      padding: 0;
+    }
+    .footer-box li {
+      margin-bottom: 5px;
+    }
+    .social-icons img {
+      width: 25px;
+      margin-right: 8px;
+      border-radius: 50%;
+      transition: transform 0.3s;
+    }
+    .social-icons img:hover {
+      transform: scale(1.1);
+    }
+    .footer-bottom {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 0.85rem;
+      color: #cbd5e1;
+    }
+
+    /* ===== LOGIN POPUP ===== */
+    .login-popup {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.6);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: 0.3s ease;
+      z-index: 999;
+    }
+    .login-popup.show {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .login-box {
+      background: #fff;
+      width: 350px;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+      position: relative;
+      animation: slideDown 0.4s ease;
+    }
+    @keyframes slideDown {
+      from { transform: translateY(-50px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+    .login-box h2 { text-align: center; color: #1e3a8a; margin-bottom: 20px; }
+    .login-box label { display: block; margin-bottom: 5px; font-weight: 600; color: #333; }
+    .login-box input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      outline: none;
+      transition: border 0.3s;
+    }
+    .login-box input:focus { border-color: #1e3a8a; }
+    .btn.green { background: #22c55e; color: #fff; border: none; padding: 10px; width: 100%; border-radius: 8px; cursor: pointer; }
+    .btn.green:hover { background: #16a34a; }
+    .close-btn { position: absolute; top: 10px; right: 15px; font-size: 1.5rem; cursor: pointer; color: #666; transition: color 0.3s; }
+    .close-btn:hover { color: red; }
+    .hidden { display: none; }
+    /* ===== MAIN SECTION ===== */
+.events-section {
+  margin-top: 120px;
+  padding: 40px 60px;
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+}
+
+.event-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.event-box.reverse {
+  flex-direction: row-reverse;
+}
+
+.event-image img {
+  width: 450px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+}
+
+.event-info {
+  flex: 1;
+  min-width: 250px;
+}
+
+.event-info h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #000;
+  margin-bottom: 10px;
+}
+
+.event-info p {
+  font-size: 1rem;
+  color: #444;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.buttons {
+  display: flex;
+  gap: 15px;
+}
+
+.btn {
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.btn.blue {
+  background: #1e3a8a;
+  color: white;
+  width: 300px;
+}
+
+.btn.blue:hover {
+  background: #1e40af;
+}
+
+.btn.green {
+  background: #22c55e;
+  color: white;
+}
+
+.btn.green:hover {
+  background: #16a34a;
+}
+
+/* ===== GALLERY POPUP ===== */
+.gallery-popup {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.9);
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+
+.gallery-popup.active {
+  display: flex;
+}
+
+.gallery-content {
+  position: relative;
+  max-width: 90%;
+  max-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gallery-content img {
+  max-width: 100%;
+  max-height: 70vh;
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+}
+
+.arrow {
+  background: rgba(255,255,255,0.3);
+  border: none;
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+  padding: 10px 15px;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: background 0.3s;
+}
+
+.arrow:hover {
+  background: rgba(255,255,255,0.6);
+}
+
+.arrow.left { left: -60px; }
+.arrow.right { right: -60px; }
+
+.close-gallery {
+  position: absolute;
+  top: 20px;
+  right: 40px;
+  font-size: 2.5rem;
+  color: white;
+  cursor: pointer;
+  z-index: 10;
+  transition: color 0.3s;
+}
+
+.close-gallery:hover {
+  color: red;
+}
+
+/* Thumbnails */
+.thumbnails {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.thumbnails img {
+  width: 100px;
+  height: 70px;
+  object-fit: cover;
+  border-radius: 8px;
+  cursor: pointer;
+  opacity: 0.6;
+  transition: opacity 0.3s, transform 0.3s;
+}
+
+.thumbnails img.active,
+.thumbnails img:hover {
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .events-section {
+    padding: 20px;
+  }
+  .event-box {
+    flex-direction: column;
+    text-align: center;
+  }
+  .event-image img {
+    width: 100%;
+    height: auto;
+  }
+  .arrow.left { left: 10px; }
+  .arrow.right { right: 10px; }
+}
+
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="logo">
+      <img src="/FB_IMG_1760245212011_edit_7412692449515.jpg" alt="Oceannarra Logo">
+    </div>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="index.html">HOME</a></li>
+        <li><a href="gallery.html" >GALLERY</a></li>
+        <li><a href="events.html" class="active">EVENTS</a></li>
+        <li><a href="/Day Tour 1.html">DAYTOUR</a></li>
+        <li><a href="facilities.html">FACILITIES</a></li>
+        <li><a href="offer.html">OFFER</a></li>
+        <li><a href="/Contact us.html">CONTACT US</a></li>
+      </ul>
+    </nav>
+    <a href="#" class="login-btn" id="openLogin">LOG IN</a>
+  </header>
+  
+  <!-- MAIN CONTENT -->
+<main class="events-section">
+  <!-- Weddings -->
+  <section class="event-box">
+    <div class="event-image">
+      <img src="/FB_IMG_1735191402369.jpg" alt="Wedding Event">
+    </div>
+    <div class="event-info">
+      <h2>WEDDINGS</h2>
+      <p>
+        Celebrate your love story by the sea. Oceannarra offers a breathtaking beachside venue where every detail—from the sunset backdrop to the gentle ocean breeze—sets the scene for your perfect day. Make memories that will last a lifetime.
+      </p>
+      <div class="buttons">
+        <a href="request.html" class="btn blue">Request Proposal</a>
+        <button class="btn green" onclick="openGallery('wedding')">See picture</button>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Photo Shoot -->
+  <section class="event-box reverse">
+    <div class="event-image">
+      <img src="/FB_IMG_1760249008115.jpg" alt="Photo Shoot">
+    </div>
+    <div class="event-info">
+      <h2>PHOTO SHOOT</h2>
+      <p>
+        Capture every stunning moment in paradise. Whether it’s a pre-nuptial shoot, fashion spread, or creative portrait, Oceannarra’s scenic views, natural light, and serene atmosphere create the perfect canvas for your vision.
+      </p>
+      <div class="buttons">
+        <a href="request.html" class="btn blue">Request Proposal</a>
+        <button class="btn green" onclick="openGallery('photoshoot')">See picture</button>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Birthdays -->
+  <section class="event-box">
+    <div class="event-image">
+      <img src="/FB_IMG_1735192354120.jpg" alt="Birthday Event">
+    </div>
+    <div class="event-info">
+      <h2>BIRTHDAY'S</h2>
+      <p>
+        Make your birthday a day to remember! From intimate dinners to grand seaside celebrations, Oceannarra provides a vibrant, festive atmosphere surrounded by nature, lights, and laughter—because every year deserves a beautiful beginning.
+      </p>
+      <div class="buttons">
+        <a href="request.html" class="btn blue">Request Proposal</a>
+        <button class="btn green" onclick="openGallery('birthday')">See picture</button>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- POPUP GALLERY -->
+<div class="gallery-popup" id="galleryPopup">
+  <span class="close-gallery" onclick="closeGallery()">&times;</span>
+  <div class="gallery-content">
+    <button class="arrow left" onclick="prevImage()">&#10094;</button>
+    <img id="galleryMainImage" src="" alt="Gallery Image">
+    <button class="arrow right" onclick="nextImage()">&#10095;</button>
+  </div>
+  <div class="thumbnails" id="galleryThumbnails"></div>
+</div>
+  
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-box">
+        <h3>Oceannarra</h3>
+        <p>Oceannarra Beach Hotel and Resort offers luxury and relaxation by the sea. <br>Experience comfort, elegance, and nature in one destination.<br>You are most welcome here at Oceanarra beach hotel and resort inc.<br>Be at your ease.Relax and indulge in the one the finer things<br>in life as you unwind and enjoyed being closer to nature</p>
+      </div>
+      <div class="footer-box">
+        <h3>Useful Links</h3>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="event.html">Events</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="footer-box">
+        <h3>Follow Us</h3>
+        <div class="social-icons">
+          <a href="#"><img src="/IMG_20251013_004452.jpg" alt="Facebook"></a>
+          <a href="#"><img src="/IMG_20251013_004441.jpg" alt="Instagram"></a>
+          <a href="#"><img src="/IMG_20251013_004507.jpg" alt="TikTok"></a>
+        </div>
+      </div>
+    </div>
+    <p class="footer-bottom">© 2025 Oceannarra Beach Hotel and Resort. All rights reserved.</p>
+  </footer>
+  
+  <!-- LOGIN POPUP -->
+  <div class="login-popup" id="loginPopup">
+    <div class="login-box" id="formBox">
+      <span class="close-btn" id="closeLogin">&times;</span>
+      
+      <div class="form login-form">
+        <h2>Log In</h2>
+        <form>
+          <label>Email</label>
+          <input type="email" placeholder="Enter your email" required>
+          <label>Password</label>
+          <input type="password" placeholder="Enter your password" required>
+          <button type="submit" class="btn green">Login</button>
+        </form>
+        <p class="toggle-text">Don’t have an account? <a href="#" id="openSignup">Sign up</a></p>
+      </div>
+      
+      <div class="form signup-form hidden">
+        <h2>Sign Up</h2>
+        <form>
+          <label>Full Name</label>
+          <input type="text" placeholder="Enter your name" required>
+          <label>Email</label>
+          <input type="email" placeholder="Enter your email" required>
+          <label>Password</label>
+          <input type="password" placeholder="Create a password" required>
+          <button type="submit" class="btn green">Register</button>
+        </form>
+        <p class="toggle-text">Already have an account? <a href="#" id="openLoginForm">Log in</a></p>
+      </div>
+    </div>
+  </div>
+  
+  <!-- JAVASCRIPT -->
+  <script>
+    const openLogin = document.getElementById('openLogin');
+    const closeLogin = document.getElementById('closeLogin');
+    const loginPopup = document.getElementById('loginPopup');
+    const loginForm = document.querySelector('.login-form');
+    const signupForm = document.querySelector('.signup-form');
+    const openSignup = document.getElementById('openSignup');
+    const openLoginForm = document.getElementById('openLoginForm');
+    
+    openLogin.addEventListener('click', (e) => {
+      e.preventDefault();
+      loginPopup.classList.add('show');
+      loginForm.classList.remove('hidden');
+      signupForm.classList.add('hidden');
+    });
+    
+    closeLogin.addEventListener('click', () => {
+      loginPopup.classList.remove('show');
+    });
+    
+    openSignup.addEventListener('click', (e) => {
+      e.preventDefault();
+      loginForm.classList.add('hidden');
+      signupForm.classList.remove('hidden');
+    });
+    
+    openLoginForm.addEventListener('click', (e) => {
+      e.preventDefault();
+      signupForm.classList.add('hidden');
+      loginForm.classList.remove('hidden');
+    });
+    
+    window.addEventListener('click', (e) => {
+      if (e.target === loginPopup) loginPopup.classList.remove('show');
+    });
+    let currentImages = [];
+let currentIndex = 0;
+
+function openGallery(type) {
+  const gallery = document.getElementById("galleryPopup");
+  const mainImage = document.getElementById("galleryMainImage");
+  const thumbnails = document.getElementById("galleryThumbnails");
+  
+  gallery.classList.add("active");
+  thumbnails.innerHTML = "";
+
+  if (type === "wedding") {
+    currentImages = ["/FB_IMG_1735191411937.jpg", "/FB_IMG_1760525603486.jpg", "/FB_IMG_1760525440447.jpg", "/FB_IMG_1760525353487.jpg", "/FB_IMG_1760249468421.jpg"];
+  } else if (type === "photoshoot") {
+    currentImages = ["/FB_IMG_1760525496103.jpg", "/FB_IMG_1760525554144.jpg", "/FB_IMG_1760525420322.jpg", "/FB_IMG_1760525400789.jpg", "/FB_IMG_1760525549604.jpg"];
+  } else if (type === "birthday") {
+    currentImages = ["/FB_IMG_1735191190369.jpg", "/FB_IMG_1735191193604.jpg", "/FB_IMG_1735191288888.jpg", "/FB_IMG_1735191296550.jpg", "/FB_IMG_1760525474399.jpg"];
+  }
+
+  currentIndex = 0;
+  mainImage.src = currentImages[currentIndex];
+
+  currentImages.forEach((src, index) => {
+    const thumb = document.createElement("img");
+    thumb.src = src;
+    thumb.onclick = () => showImage(index);
+    if (index === 0) thumb.classList.add("active");
+    thumbnails.appendChild(thumb);
+  });
+}
+
+function showImage(index) {
+  currentIndex = index;
+  const mainImage = document.getElementById("galleryMainImage");
+  const thumbs = document.querySelectorAll(".thumbnails img");
+  mainImage.src = currentImages[currentIndex];
+  thumbs.forEach(img => img.classList.remove("active"));
+  thumbs[currentIndex].classList.add("active");
+}
+
+function nextImage() {
+  currentIndex = (currentIndex + 1) % currentImages.length;
+  showImage(currentIndex);
+}
+
+function prevImage() {
+  currentIndex = (currentIndex - 1 + currentImages.length) % currentImages.length;
+  showImage(currentIndex);
+}
+
+function closeGallery() {
+  document.getElementById("galleryPopup").classList.remove("active");
+}
+
+  </script>
+  
+  </body>
+  
+  </html>
+Andrei

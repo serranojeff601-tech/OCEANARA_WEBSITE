@@ -1,0 +1,271 @@
+h2>Sign Up</h2>
+        <form>
+          <label>Full Name</label>
+          <input type="text" placeholder="Enter your name" required>
+          <label>Email</label>
+          <input type="email" placeholder="Enter your email" required>
+          <label>Password</label>
+          <input type="password" placeholder="Create a password" required>
+          <button type="submit" class="btn green">Register</button>
+        </form>
+        <p class="toggle-text">Already have an account? <a href="#" id="openLoginForm">Log in</a></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- JAVASCRIPT -->
+  <script>
+    const openLogin = document.getElementById('openLogin');
+    const closeLogin = document.getElementById('closeLogin');
+    const loginPopup = document.getElementById('loginPopup');
+    const loginForm = document.querySelector('.login-form');
+    const signupForm = document.querySelector('.signup-form');
+    const openSignup = document.getElementById('openSignup');
+    const openLoginForm = document.getElementById('openLoginForm');
+
+    openLogin.addEventListener('click', (e) => {
+      e.preventDefault();
+      loginPopup.classList.add('show');
+      loginForm.classList.remove('hidden');
+      signupForm.classList.add('hidden');
+    });
+
+    closeLogin.addEventListener('click', () => {
+      loginPopup.classList.remove('show');
+    });
+
+    openSignup.addEventListener('click', (e) => {
+      e.preventDefault();
+      loginForm.classList.add('hidden');
+      signupForm.classList.remove('hidden');
+    });
+
+    openLoginForm.addEventListener('click', (e) => {
+      e.preventDefault();
+      signupForm.classList.add('hidden');
+      loginForm.classList.remove('hidden');
+    });
+
+    // Close popup by clicking outside
+    window.addEventListener('click', (e) => {
+      if (e.target === loginPopup) {
+        loginPopup.classList.remove('show');
+      }
+    });
+  </script>
+
+</body>
+</html>
+Andrei
+g {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 15px;
+}
+
+.review-card p {
+  font-size: 0.95rem;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.review-card h4 {
+  font-weight: 600;
+  color: #1e3a8a;
+}
+
+/* FOOTER */
+.footer {
+  background: #1e3a8a;
+  color: white;
+  padding: 60px 20px 20px;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-box h3 {
+  margin-bottom: 15px;
+  font-size: 1.3rem;
+}
+
+.footer-box p,
+.footer-box ul {
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.footer-box ul {
+  list-style: none;
+}
+
+.footer-box ul li {
+  margin-bottom: 8px;
+}
+
+.footer-box ul a {
+  color: #cbd5e1;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.footer-box ul a:hover {
+  color: white;
+}
+
+.social-icons a img {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+  border-radius: 50%;
+  background: white;
+  padding: 5px;
+}
+
+.footer-bottom {
+  text-align: center;
+  font-size: 0.9rem;
+  margin-top: 30px;
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+  padding-top: 15px;
+}
+
+/* RESPONSIVE FOOTER */
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .login-btn {
+    display: none;
+    /* Optional: hide login button on small screens */
+  }
+}
+
+/* LOGIN POPUP */
+.login-popup {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.3s ease;
+  z-index: 999;
+}
+
+.login-popup.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.login-box {
+  background: #fff;
+  width: 350px;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  position: relative;
+  animation: slideDown 0.4s ease;
+}
+
+@keyframes slideDown {
+  from { transform: translateY(-50px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.login-box h2 {
+  text-align: center;
+  color: #1e3a8a;
+  margin-bottom: 20px;
+}
+
+.login-box label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 600;
+  color: #333;
+}
+
+.login-box input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  outline: none;
+  transition: border 0.3s;
+}
+
+.login-box input:focus {
+  border-color: #1e3a8a;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #666;
+  transition: color 0.3s;
+}
+
+.close-btn:hover {
+  color: red;
+}
+
+.signup-text {
+  text-align: center;
+  margin-top: 10px;
+  font-size: 0.9rem;
+}
+
+.signup-text a {
+  color: #1e3a8a;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.signup-text a:hover {
+  text-decoration: underline;
+}
+
+/* LOGIN & SIGNUP TOGGLE ANIMATION */
+.form {
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.hidden {
+  display: none;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.toggle-text {
+  text-align: center;
+  margin-top: 10px;
+  font-size: 0.9rem;
+}
+
+.toggle-text a {
+  color: #1e3a8a;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.toggle-text a:hover {
+  text-decoration: underline;
+}

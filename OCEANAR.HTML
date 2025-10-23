@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Oceannarra Beach Hotel and Resort</title>
+  <link rel="stylesheet" href="HOME.css">
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="logo">
+      <img src="/FB_IMG_1760245212011_edit_7412692449515.jpg" alt="Oceannarra Logo">
+    </div>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="index.html" class="active">HOME</a></li>
+        <li><a href="gallery.html">GALLERY</a></li>
+        <li><a href="events.html">EVENTS</a></li>
+        <li><a href="/Day Tour 1.html">DAYTOUR</a></li>
+        <li><a href="facilities.html">FACILITIES</a></li>
+        <li><a href="offer.html">OFFER</a></li>
+        <li><a href="/Contact us.html">CONTACT US</a></li>
+      </ul>
+    </nav>
+    <a href="#" class="login-btn" id="openLogin">LOG IN</a>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <div class="hero-text">
+     <h1>WELCOME TO OCEANARRA BEACH HOTEL AND RESORT</h1>
+      <p>Perfect for couples, Family bonding, Reunion, Team building, event celebration,<br>
+         or just a simple relaxing staycation with sea and forest</p>
+    </div>
+  </section>
+
+  <!-- ROOMS SECTION -->
+  <section class="rooms">
+    <h2 class="section-title">AVAILABLE ROOMS</h2>
+    <div class="room-container">
+      <div class="room-card">
+        <img src="/FB_IMG_1760245166853.jpg" alt="Premium Room">
+        <a href="#" class="btn blue">BOOK NOW</a>
+      </div>
+      <div class="room-card">
+        <img src="/FB_IMG_1760245164432.jpg" alt="Deluxe Room">
+        <a href="#" class="btn green">BOOK NOW</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- WEDDING SECTION -->
+  <section class="wedding">
+    <div class="wedding-overlay">
+      <h2>YOUR PERFECT WEDDING</h2>
+      <p>Celebrate your milestones with us and let our team meticulously fulfill your dream wedding, anniversary,<br>
+        birthday or family get together</p>
+      <a href="#" class="btn white">REQUEST PROPOSAL</a>
+    </div>
+  </section>
+
+  <!-- GUEST REVIEWS -->
+  <section class="reviews">
+    <h2 class="section-title">GUEST REVIEWS</h2>
+    <div class="review-container">
+      <div class="review-card">
+        <img src="/Messenger_creation_C80348AE-F429-4C95-9992-86E68C281F7E.png" alt="Guest 1">
+        <p>"Amazing place! The staff were friendly and the rooms were super clean."</p>
+        <h4>- Meow Ming</h4>
+      </div>
+      <div class="review-card">
+        <img src="/IMG_20250210_195547.jpg" alt="Guest 2">
+        <p>"Perfect for a family weekend getaway. Beautiful beach and pool area!"</p>
+        <h4>- Tom kit</h4>
+      </div>
+      <div class="review-card">
+        <img src="/IMG_20250210_195518.jpg" alt="Guest 3">
+        <p>"Our wedding here was magical! Thank you Oceannarra team!"</p>
+        <h4>- Angela kitty</h4>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-box">
+        <h3>Oceannarra</h3>
+        <p>Oceannarra Beach Hotel and Resort offers luxury and relaxation by the sea. <br>Experience comfort, elegance, and nature in one destination.<br>You are most welcome here at Oceanarra beach hotel and resort inc.<br>Be at your ease.Relax and indulge in the one the finer things<br>in life as you unwind and enjoyed being closer to nature</p>
+      </div>
+      <div class="footer-box">
+        <h3>Useful Links</h3>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="event.html">Events</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="footer-box">
+        <h3>Follow Us</h3>
+        <div class="social-icons">
+          <a href="#"><img src="/IMG_20251013_004452.jpg" alt="Facebook"></a>
+          <a href="#"><img src="/IMG_20251013_004441.jpg" alt="Instagram"></a>
+          <a href="#"><img src="/IMG_20251013_004507.jpg" alt="TikTok"></a>
+        </div>
+      </div>
+    </div>
+    <p class="footer-bottom">© 2025 Oceannarra Beach Hotel and Resort. All rights reserved.</p>
+  </footer>
+
+  <!-- LOGIN & SIGNUP POPUP -->
+  <div class="login-popup" id="loginPopup">
+    <div class="login-box" id="formBox">
+      <span class="close-btn" id="closeLogin">&times;</span>
+
+      <!-- LOGIN FORM -->
+      <div class="form login-form">
+        <h2>Log In</h2>
+        <form>
+          <label>Email</label>
+          <input type="email" placeholder="Enter your email" required>
+          <label>Password</label>
+          <input type="password" placeholder="Enter your password" required>
+          <button type="submit" class="btn green">Login</button>
+        </form>
+        <p class="toggle-text">Don’t have an account? <a href="#" id="openSignup">Sign up</a></p>
+      </div>
+
+      <!-- SIGN UP FORM -->
+      <div class="form signup-form hidden">
+        <h2>Sign Up</h2>
+        <form>
+          <label>Full Name</label>
+          <input type="text" placeholder="Enter your name" required>
+          <label>Email</label>
+          <input type="email" placeholder="Enter your email" required>
+          <label>Password</label>
+          <input type="password" placeholder="Create a password" required>
+          <button type="submit" class="btn green">Register</button>
+        </form>
+        <p class="toggle-text">Already have an account? <a href="#" id="openLoginForm">Log in</a></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- JAVASCRIPT -->
+  <script>
+    const openLogin = document.getElementById('openLogin');
+    const closeLogin = document.getElementById('closeLogin');
+    const loginPopup = document.getElementById('loginPopup');
+    const loginForm = document.querySelector('.login-form');
+    const signupForm = document.querySelector('.signup-form');
+    const openSignup = document.getElementById('openSignup');
+    const openLoginForm = document.getElementById('openLoginForm');
+
+    openLogin.addEventListener('click', (e) => {
+      e.preventDefault();
+      loginPopup.classList.add('show');
+      loginForm.classList.remove('hidden');
+      signupForm.classList.add('hidden');
+    });
+
+    closeLogin.addEventListener('click', () => {
+      loginPopup.classList.remove('show');
+    });
+
+    openSignup.addEventListener('click', (e) => {
+      e.preventDefault();
+      loginForm.classList.add('hidden');
+      signupForm.classList.remove('hidden');
+    });
+
+    openLoginForm.addEventListener('click', (e) => {
+      e.preventDefault();
+      signupForm.classList.add('hidden');
+      loginForm.classList.remove('hidden');
+    });
+
+    // Close popup by clicking outside
+    window.addEventListener('click', (e) => {
+      if (e.target === loginPopup) {
+        loginPopup.classList.remove('show');
+      }
+    });
+  </script>
+
+</body>
+</html>
